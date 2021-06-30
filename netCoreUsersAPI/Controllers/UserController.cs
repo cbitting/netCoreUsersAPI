@@ -59,7 +59,7 @@ namespace netCoreUsersAPI.Controllers
                 var Time = DateTime.Now.ToLocalTime().ToString();
                 var cacheOptions = new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpiration = DateTime.Now.AddSeconds(cooldownMins)
+                    AbsoluteExpiration = DateTime.Now.AddMinutes(cooldownMins)
                 };
                 _memoryCache.Set(sessionId + "-" + path, Encoding.UTF8.GetBytes(Time), cacheOptions);
                 return true;
@@ -112,7 +112,7 @@ namespace netCoreUsersAPI.Controllers
             HttpContext.Session.SetString("UserAPIkey", "fake_token_here");
 
             string sessId = HttpContext.Session.Id;
-            bool allowAPIRequest = LogAPIRequest(sessId, "user/random", 5);
+            bool allowAPIRequest = LogAPIRequest(sessId, "user/random", 10);
 
 
             string sid = HttpContext.Session.IsAvailable.ToString();
