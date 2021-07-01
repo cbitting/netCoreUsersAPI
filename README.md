@@ -6,3 +6,6 @@ See a demo here: https://youtu.be/MlKMttgbmVM
 ## Running the dev app
 - Install the needed requirements (not many)
 - Run!
+
+## Checkout Swagger docs
+- at /swagger
